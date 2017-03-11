@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5B89CBA0-BA10-DB76-08D8-FADA89974B3F" name="CUENTA">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:45:31 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_cuenta" id="99C906D0-8EDD-827B-E1E4-E59B3C914916">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:45:57 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="saldo" id="4DF07A02-001C-739B-17DB-A6A74AAE613A">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:48:54 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_usuario" id="AA180B53-8B2D-7585-06BB-6678847FA907">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:55:42 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4E40556B-BF14-C63F-BA04-A6840266D572" referredColumn="4B546D00-43A7-2F43-B655-E52124740ED8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6D0112C2-4084-21AD-A219-6B824953BA0B" name="CUENTA_PK">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:45:57 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99C906D0-8EDD-827B-E1E4-E59B3C914916"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1E5B77BC-967E-37AA-4890-AAE6FF45E770" name="CUENTA_USUARIO_FK">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:55:42 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AA180B53-8B2D-7585-06BB-6678847FA907"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

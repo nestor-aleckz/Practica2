@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="600E51BE-628D-51EB-8C26-28F533D1DC1D" name="SERVICIO">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 22:02:14 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="nombre" id="B2340D16-0F91-62A8-343C-49CA59F569C9">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 22:03:34 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="518B6BDD-22DD-5B0E-3685-95981553D0E9">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 22:03:34 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="monto" id="E00AFD50-083D-3B31-DA8E-C8C31359D7E4">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 22:03:34 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha" id="5F0AC79A-B54B-4DE6-8943-87D0B0C2FFC6">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 22:03:34 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_cuenta_origen" id="7A7B8277-10F9-4062-4984-BD31BF3C56CD">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 22:04:07 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="382A63A6-473E-C287-9E4B-2B2E25BE06A0" referredColumn="99C906D0-8EDD-827B-E1E4-E59B3C914916"/>
+</associations>
+</Column>
+<Column name="id_cuenta_servicio" id="2ECAEE92-48E8-D76A-DC9A-5BD45719F438">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 22:04:17 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9648455D-A018-29FA-9C47-0B99E33AB91A" referredColumn="99C906D0-8EDD-827B-E1E4-E59B3C914916"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="06A76CC9-0A31-DA7E-76D9-AD492BB38FEA" name="SERVICIO_CUENTA_ORIGEN_FK">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 22:04:07 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7A7B8277-10F9-4062-4984-BD31BF3C56CD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="11086B49-C337-DF26-00BE-B27DC0983752" name="SERVICIO_CUENTA_SERVICIO_FK">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 22:04:17 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2ECAEE92-48E8-D76A-DC9A-5BD45719F438"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

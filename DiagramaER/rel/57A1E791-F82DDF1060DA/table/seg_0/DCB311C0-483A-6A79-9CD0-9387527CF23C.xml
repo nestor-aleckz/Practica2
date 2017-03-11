@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DCB311C0-483A-6A79-9CD0-9387527CF23C" name="TRANSFERENCIA">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:49:57 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="monto" id="DE3770DC-46D6-9382-D2F3-E5BC87D15FD9">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:50:38 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha" id="3E6985C7-0817-380C-5F80-697F0BEE1F2C">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:50:38 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_cuenta_destino" id="BF4A5F40-9685-2925-706B-303818E359AC">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:56:01 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EFA60C61-6BBE-08CD-BE04-8535DC58C84A" referredColumn="99C906D0-8EDD-827B-E1E4-E59B3C914916"/>
+</associations>
+</Column>
+<Column name="id_cuenta_origen" id="7C28B6B3-4F20-647D-7E75-574BD41EE9AE">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:56:07 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B71C34BB-95E6-56BA-BF13-BD20E31FFCCF" referredColumn="99C906D0-8EDD-827B-E1E4-E59B3C914916"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3CEAFA1B-99C4-68D5-FD5B-F8BAFAC94DBA" name="TRANSFERENCIA_CUENTA_DESTINO_FK">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:56:01 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BF4A5F40-9685-2925-706B-303818E359AC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A72A1B93-F621-D5B4-FCBF-08FDBC2CF87B" name="TRANSFERENCIA_CUENTA_ORIGEN_FK">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:56:07 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C28B6B3-4F20-647D-7E75-574BD41EE9AE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

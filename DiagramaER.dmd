@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="DiagramaER" id="A40EFA0F-0533-1DF5-96BF-1759C8C5DE68" version="3.5">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:41:59 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>A40EFA0F-0533-1DF5-96BF-1759C8C5DE68</designId>
+</OSDM_Design>

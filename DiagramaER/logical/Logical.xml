@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="236A2D72-F38E-F426-5D73-ECCB10FF6617" mainViewID="98402657-2353-EAF2-4546-551ABB6675D2">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:41:59 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

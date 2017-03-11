@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="EFA60C61-6BBE-08CD-BE04-8535DC58C84A" containerWithKeyObject="DCB311C0-483A-6A79-9CD0-9387527CF23C" localFKIndex="3CEAFA1B-99C4-68D5-FD5B-F8BAFAC94DBA" name="TRANSFERENCIA_CUENTA_DESTINO_FK">
+<createdBy>randyfernando</createdBy>
+<createdTime>2017-03-06 21:56:01 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>DiagramaER</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>5B89CBA0-BA10-DB76-08D8-FADA89974B3F</referredTableID>
+<keyObject>6D0112C2-4084-21AD-A219-6B824953BA0B</keyObject>
+<referredKeyID>6D0112C2-4084-21AD-A219-6B824953BA0B</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
