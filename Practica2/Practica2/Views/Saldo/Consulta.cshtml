@@ -1,0 +1,27 @@
+﻿@model Practica2.Models.CuentaModels
+@{
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Consulta</title>
+
+</head>
+<body>
+    <div>
+        <h2>El saldo de tu cuenta es:</h2> 
+        <p>Q @Model.saldo</p>
+        <p>@DateTime.Now.ToString("d/m/yyyy hh:mm:ss")</p>
+    </div>
+</body>
+</html>

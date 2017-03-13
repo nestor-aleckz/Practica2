@@ -16,8 +16,13 @@ namespace Practica2
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "CreditoDebito", action = "Credito", id = UrlParameter.Optional }
             );
+            /*routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );*/
         }
     }
 }
