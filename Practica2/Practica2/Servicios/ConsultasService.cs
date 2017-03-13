@@ -50,30 +50,57 @@ namespace Practica2.Servicios
             return usuario;
         }
 
-        public void acreditarDebitar(CreditoDebitoModels creditoDebito)
+        public string acreditarDebitar(CreditoDebitoModels creditoDebito)
         {
+
+            HttpContext.Current.Session["Error"] = "";
             bDservice.Upd_New_DelUnValorQry("insert into dbo.CREDITODEBITO (id_cuenta,descripcion,fecha,monto,tipo) values (" + creditoDebito.cuenta.id_cuenta + 
                 ",'"+ creditoDebito.descripcion+"','" + creditoDebito.fecha + "'," + creditoDebito.monto + ","+ creditoDebito.tipo+")");
-            double saldo = Convert.ToDouble(bDservice.SelectUnValorQry("select saldo from dbo.CUENTA where id_cuenta = " + creditoDebito.cuenta.id_cuenta));
+            if (HttpContext.Current.Session["Error"].ToString() != "")
+                return "No existe cuenta";
+
+            double saldo = getSaldoCuenta(creditoDebito.cuenta.id_cuenta);
 
             if (creditoDebito.tipo == 1)
                 saldo += creditoDebito.monto;
             else
+            {
+                if (!tieneFondos(saldo, creditoDebito.monto))
+                    return "No tiene suficientes fondos";
                 saldo -= creditoDebito.monto;
+            }
             bDservice.Upd_New_DelUnValorQry("update dbo.CUENTA set saldo = " + saldo + " where id_cuenta = " + creditoDebito.cuenta.id_cuenta);
+            return "";
         }
 
-        public void pagarServicio(ServicioModels serviciosModel)
+        public string pagarServicio(ServicioModels serviciosModel)
         {
+            double saldo_origen = getSaldoCuenta(serviciosModel.cuenta_origen.id_cuenta) ;
+            if (!tieneFondos(saldo_origen,serviciosModel.monto))
+                return "No tiene suficientes fondos";
+    
+
             bDservice.Upd_New_DelUnValorQry("insert into dbo.SERVICIO (id_cuenta_origen,id_cuenta_servicio,nombre,monto,fecha,descripcion) values ("
                 + serviciosModel.cuenta_origen.id_cuenta + "," + serviciosModel.cuenta_servicio.id_cuenta + ",'" + serviciosModel.nombre + "'," + serviciosModel.monto
                 + ",'" + DateTime.Now + "','" + serviciosModel.descripcion + "')");
 
-            double saldo_origen =  Convert.ToDouble(bDservice.SelectUnValorQry("select saldo from dbo.CUENTA where id_cuenta = " + serviciosModel.cuenta_origen.id_cuenta)) - serviciosModel.monto;
-            double saldo_servicio = Convert.ToDouble(bDservice.SelectUnValorQry("select saldo from dbo.CUENTA where id_cuenta = " + serviciosModel.cuenta_servicio.id_cuenta)) + serviciosModel.monto;
+            double saldo_servicio = getSaldoCuenta(serviciosModel.cuenta_servicio.id_cuenta) + serviciosModel.monto;
 
-            bDservice.Upd_New_DelUnValorQry("update dbo.CUENTA set saldo = " + saldo_origen + " where id_cuenta = " + serviciosModel.cuenta_origen.id_cuenta);
+            bDservice.Upd_New_DelUnValorQry("update dbo.CUENTA set saldo = " + (saldo_origen - serviciosModel.monto) + " where id_cuenta = " + serviciosModel.cuenta_origen.id_cuenta);
             bDservice.Upd_New_DelUnValorQry("update dbo.CUENTA set saldo = " + saldo_servicio + " where id_cuenta = " + serviciosModel.cuenta_servicio.id_cuenta);
+
+            return "";
+        }
+
+        public double getSaldoCuenta(int id_Cuenta)
+        {
+            return Convert.ToDouble(bDservice.SelectUnValorQry("select saldo from dbo.CUENTA where id_cuenta = " + id_Cuenta));
+        }
+        public bool tieneFondos(double saldo_origen, double monto_Pagar)
+        {
+            if (saldo_origen < monto_Pagar)
+                return false;
+            return true;
         }
     }
 }

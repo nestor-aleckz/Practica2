@@ -47,15 +47,20 @@ namespace Practica2.Controllers
                     fecha = DateTime.Now,
                     tipo = 1
                 };
-                consultaService.acreditarDebitar(credito);
+                string msgResultado = consultaService.acreditarDebitar(credito);
+                if (msgResultado != "")
+                {
+                    ViewBag.MsgSaldo += "Error: " + msgResultado;
+                    return View("Credito");
+                }
                 ViewBag.MsgSaldo = "Acreditacion exitosa";
+                return View("Credito");
             }
             catch (Exception)
             {
-                ViewBag.MsgSaldo += "Hay problemas al realizar el credito";
-                throw;
+                ViewBag.MsgSaldo += "Hay problemas al realizar el credito o hay datos incorrectos";
+                return View("Credito");
             }
-            return View("Credito");
         }
 
         // GET: Credito
@@ -82,15 +87,20 @@ namespace Practica2.Controllers
                     fecha = DateTime.Now,
                     tipo = 0
                 };
-                consultaService.acreditarDebitar(debito);
+                string msgResultado = consultaService.acreditarDebitar(debito);
+                if (msgResultado != "")
+                {
+                    ViewBag.MsgSaldo += "Error: " + msgResultado;
+                    return View("Debito");
+                }
                 ViewBag.MsgSaldo = "Debitacion exitosa";
+                return View("Debito");
             }
             catch (Exception)
             {
-                ViewBag.MsgSaldo += "Hay problemas al realizar el debito";
-                throw;
+                ViewBag.MsgSaldo += "Hay problemas al realizar el debito o hay datos incorrectos";
+                return View("Debito");
             }
-            return View("Debito");
         }
 
         // GET: Credito
@@ -117,17 +127,23 @@ namespace Practica2.Controllers
                     fecha = DateTime.Now,
                     cuenta_origen = consultaService.getCuenta(usuarioLogged.id_usuario)
                 };
-                consultaService.pagarServicio(serviciosModel);
+                string msgResultado = consultaService.pagarServicio(serviciosModel);
+                if (msgResultado != "")
+                {
+                    ViewBag.MsgSaldo += "Error: " + msgResultado;
+                    return View("PagoServicios");
+                }
                 ViewBag.MsgSaldo = "Se pagaron Q." + monto + " a nombre de " + nombre + " en la cuenta  #" + cuenta_servicio;
                 if(descripcion != "")
                     ViewBag.MsgSaldo += "\npor motivo de " + descripcion;
+
+                return View("PagoServicios");
             }
             catch (Exception)
             {
-                ViewBag.MsgSaldo += "Hay problemas al realizar el pago";
-                throw;
+                ViewBag.MsgSaldo += "Hay problemas al realizar el pago o hay datos incorrectos";
+                return View("PagoServicios");
             }
-            return View("PagoServicios");
         }
 
         
