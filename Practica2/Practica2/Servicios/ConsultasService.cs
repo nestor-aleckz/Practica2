@@ -52,11 +52,10 @@ namespace Practica2.Servicios
 
         public string acreditarDebitar(CreditoDebitoModels creditoDebito)
         {
-
-            HttpContext.Current.Session["Error"] = "";
-            bDservice.Upd_New_DelUnValorQry("insert into dbo.CREDITODEBITO (id_cuenta,descripcion,fecha,monto,tipo) values (" + creditoDebito.cuenta.id_cuenta + 
+            
+            int error = bDservice.Upd_New_DelUnValorQry_SLID("insert into dbo.CREDITODEBITO (id_cuenta,descripcion,fecha,monto,tipo) values (" + creditoDebito.cuenta.id_cuenta + 
                 ",'"+ creditoDebito.descripcion+"','" + creditoDebito.fecha + "'," + creditoDebito.monto + ","+ creditoDebito.tipo+")");
-            if (HttpContext.Current.Session["Error"].ToString() != "")
+            if (error== 0)
                 return "No existe cuenta";
 
             double saldo = getSaldoCuenta(creditoDebito.cuenta.id_cuenta);
@@ -78,11 +77,12 @@ namespace Practica2.Servicios
             double saldo_origen = getSaldoCuenta(serviciosModel.cuenta_origen.id_cuenta) ;
             if (!tieneFondos(saldo_origen,serviciosModel.monto))
                 return "No tiene suficientes fondos";
-    
 
+            String format = "MM/dd/yyyy";
+            String fecha = DateTime.Now.ToString(format);
             bDservice.Upd_New_DelUnValorQry("insert into dbo.SERVICIO (id_cuenta_origen,id_cuenta_servicio,nombre,monto,fecha,descripcion) values ("
                 + serviciosModel.cuenta_origen.id_cuenta + "," + serviciosModel.cuenta_servicio.id_cuenta + ",'" + serviciosModel.nombre + "'," + serviciosModel.monto
-                + ",'" + DateTime.Now + "','" + serviciosModel.descripcion + "')");
+                + ",'" + fecha + "','" + serviciosModel.descripcion + "')");
 
             double saldo_servicio = getSaldoCuenta(serviciosModel.cuenta_servicio.id_cuenta) + serviciosModel.monto;
 

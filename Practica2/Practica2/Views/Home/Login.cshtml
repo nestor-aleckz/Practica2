@@ -1,0 +1,90 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section MenuIzq{
+    <li>@Html.ActionLink("Registro", "User", "Home")</li>
+    <li>@Html.ActionLink("Login", "Login", "Home")</li>    
+}
+<h2> Iniciar Sesion </h2>
+<div class="row">
+    <div class="col-sm-6 col-md-6">
+        <table style="width:100%">
+            <tr>
+                <td><label class="col-md-2 control-label"> Codigo </label></td>
+                <td><input type="text" id="txtCodigo" class="form-control"></td>
+            </tr>
+            <tr>
+                <td><label class="col-md-2 control-label"> Usuario </label></td>
+                <td><input type="text" id="txtUser" class="form-control"></td>
+            </tr>
+            <tr>
+                <td><label class="col-md-2 control-label"> Contraseña </label> </td>
+                <td><input type="password" id="txtPass" class="form-control"></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-3 col-md-3">
+        <center>
+            <input type="button" id="btnIngresar" class="btn btn-default" value="Ingresar">
+        </center>
+    </div>
+</div>
+
+<div class="row">
+    <div id="correcto" class="col-sm-6 col-md-6" style="background-color:aliceblue">
+    </div>
+</div>
+<div class="row">
+    <div id="error" style="background-color: darkorange" class="col-sm-6 col-md-6">
+    </div>
+</div>
+
+<script type="text/javascript" src="../Scripts/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        $('#error').hide();
+        $('#correcto').hide();
+        $('#btnIngresar').click(function () {
+            var cod = $('#txtCodigo').val();
+            var user = $('#txtUser').val();
+            var pass = $('#txtPass').val();
+            
+            if (user && (user != '') && pass && (pass != ''))
+                verificar(cod,user, pass);
+        });
+    });
+
+    function verificar(codigo,user, pass) {
+        $.ajax({
+            type: "POST",
+            url: "/Home/Ingresar",
+            data: '{codigo : "' + codigo + '", user: "' + user + '", pass : "' + pass + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (msg) {
+                if (msg.resultado == "1") {
+                    $('#correcto').html("<p>" + msg.msj + "</p>");
+                    var url = '@Url.Action("Inicio", "Bank", new { usuario = "_id_"})';
+                    window.location.href = url.replace("_id_",msg.msj);;
+                } else {
+                    $('#error').html("<p>" + msg.msj + "</p>");
+                    $('#error').show();
+                    $('#correcto').hide();
+                }
+            },
+            error: function (result) {
+                alert("ERROR " + result.status + ' ' + result.statusText);
+            }
+        });
+
+    };
+</script>
+
+

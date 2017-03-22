@@ -6,7 +6,9 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Practica2;
 using Practica2.Controllers;
-
+using Practica2.Servicios;
+using Practica2.Models;
+using System.Web;
 namespace Practica2.Tests.Controllers
 {
     [TestClass]
@@ -50,5 +52,91 @@ namespace Practica2.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+        [TestMethod]
+        public void Login()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.Login() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+       
+        [TestMethod]
+        public void existeUsuario() 
+        { 
+            //Arrange
+            UserService serv = new UserService();
+            String usuario = "admin";
+            bool esperado = false;
+            //Acts
+            bool resultado = serv.existeUsuario(usuario);
+            
+            //Asert
+            Assert.AreEqual(esperado,resultado);
+        }
+
+        [TestMethod]
+        public void Ingresar() 
+        {
+            //Arrange 
+            String codigo = "2";
+            String user = "pao";
+            String pass = "1234";
+            UserService serv = new UserService();
+            UsuarioModels usuarioEsperado = new UsuarioModels()
+            {
+                id_usuario = 2,
+                usuario = "pao",
+                correo = "pao@gmail.com",
+                contrasenia = "1234",
+                nombre = "Pao",
+                apellido = "Del Cid"
+            };
+            //Acts
+            UsuarioModels resultado = serv.getUsuario(codigo,user,pass) as UsuarioModels;
+            //Asert
+            if(resultado != null){
+            Assert.AreEqual(usuarioEsperado.id_usuario,resultado.id_usuario);
+            }
+        }
+
+        [TestMethod]
+        public void Registrar() 
+        {
+            //Arrange 
+            UserService serv = new UserService();
+            UsuarioModels usuario = new UsuarioModels()
+            {
+                id_usuario = 6,
+                usuario = "nuevo",
+                correo = "nuevo@gmail.com",
+                contrasenia = "1234",
+                nombre = "Nuevo",
+                apellido = "Usuario"
+            };
+            int esperado = 1;
+            //Acts
+            int resultado = serv.crearNuevoUsuario(usuario);
+            //Asert
+            Assert.AreEqual(esperado, resultado);
+            
+        }
+
+        [TestMethod]
+        public void obtenerCodigo() 
+        { 
+            //Arrange
+            UserService serv = new UserService();
+            int esperado = 6;
+            //Acts
+            int resultado = serv.getCodigoUsuario();
+            //Asert
+            Assert.AreEqual(esperado,resultado);
+        }
+       
     }
 }

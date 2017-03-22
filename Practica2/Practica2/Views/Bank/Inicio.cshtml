@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Menu{
+    <li>@Html.ActionLink("Transferencia", "Transferencia", "Bank")</li>
+    <li>@Html.ActionLink("Credito", "Credito", "CreditoDebito")</li>
+    <li>@Html.ActionLink("Debito", "Debito", "CreditoDebito")</li>
+    <li>@Html.ActionLink("Pago Servicio", "PagoServicios", "CreditoDebito")</li>
+    <li>@Html.ActionLink("Ver Saldo", "Consulta", "Saldo")</li>
+
+}
+<h3> Bienvenido a Banca en Linea  @Model.nombre  @Model.apellido</h3>

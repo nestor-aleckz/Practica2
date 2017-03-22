@@ -1,0 +1,89 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Menu{
+    <li>@Html.ActionLink("Transferencia", "Transferencia", "Bank")</li>
+    <li>@Html.ActionLink("Credito", "Credito", "CreditoDebito")</li>
+    <li>@Html.ActionLink("Debito", "Debito", "CreditoDebito")</li>
+    <li>@Html.ActionLink("Pago Servicio", "PagoServicios", "CreditoDebito")</li>
+    <li>@Html.ActionLink("Ver Saldo", "Consulta", "Saldo")</li>
+
+}
+<h2>Transferencia</h2>
+
+<div class="row">
+    <div class="col-sm-6 col-md-6">
+        <table style="width:100%">
+            <tr>
+                <td><label class="col-md-2 control-label"> Cuenta </label></td>
+                <td><input type="text" id="txtCuenta" class="form-control"></td>
+            </tr>
+            <tr>
+                <td><label class="col-md-2 control-label"> Monto </label> </td>
+                <td><input type="text" id="txtMonto" class="form-control"></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-3 col-md-3">
+        <center>
+            <input type="button" id="btnAceptar" class="btn btn-default" value="Realizar Transferencia">
+        </center>
+    </div>
+</div>
+
+<div class="row">
+    <div id="correcto" class="col-sm-6 col-md-6" style="background-color:aliceblue">
+    </div>
+</div>
+<div class="row">
+    <div id="error" style="background-color: darkorange" class="col-sm-6 col-md-6">
+    </div>
+</div>
+
+
+<script type="text/javascript" src="../Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        $('#error').hide();
+        $('#correcto').hide();
+        $('#btnAceptar').click(function () {
+            var cuenta = $('#txtCuenta').val();
+            var monto = $('#txtMonto').val();
+
+            if (cuenta && (cuenta != '') && monto && (monto != ''))
+                transferencia(cuenta, monto);
+        });
+    });
+
+    function transferencia(cuenta, monto) {
+        $.ajax({
+            type: "POST",
+            url: "/Bank/Transferir",
+            data: '{cuenta: "' + cuenta + '", monto : "' + monto + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (msg) {
+                if (msg.resultado == "1") {
+                    $('#correcto').html("<p>" + msg.msj + "</p>");
+                    $('#correcto').show();
+                    $('#error').hide();
+                } else {
+                    $('#error').html("<p>" + msg.msj + "</p>");
+                    $('#error').show();
+                    $('#correcto').hide();
+                }
+            },
+            error: function (result) {
+                alert("ERROR " + result.status + ' ' + result.statusText);
+            }
+        });
+
+    };
+</script>
+
+

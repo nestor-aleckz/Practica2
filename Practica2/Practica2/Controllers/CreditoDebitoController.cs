@@ -36,25 +36,32 @@ namespace Practica2.Controllers
         {
             try
             {
-                CreditoDebitoModels credito = new CreditoDebitoModels()
+                TransferenciaService service = new TransferenciaService();
+                CuentaModels cuentaDestino = service.getCuenta(cuenta.Trim(),0);
+                if (cuentaDestino != null)
                 {
-                    cuenta = new CuentaModels()
+                    CreditoDebitoModels credito = new CreditoDebitoModels()
                     {
-                        id_cuenta = Convert.ToInt32(cuenta) 
-                    },
-                    monto = Convert.ToDouble(monto),
-                    descripcion = descripcion,
-                    fecha = DateTime.Now,
-                    tipo = 1
-                };
-                string msgResultado = consultaService.acreditarDebitar(credito);
-                if (msgResultado != "")
-                {
-                    ViewBag.MsgSaldo += "Error: " + msgResultado;
+                        cuenta = cuentaDestino,
+                        monto = Convert.ToDouble(monto),
+                        descripcion = descripcion,
+                        fecha = DateTime.Now,
+                        tipo = 1
+                    };
+                    string msgResultado = consultaService.acreditarDebitar(credito);
+                    if (msgResultado != "")
+                    {
+                        ViewBag.MsgSaldo += "Error: " + msgResultado;
+                        return View("Credito");
+                    }
+                    ViewBag.MsgSaldo = "Acreditacion exitosa";
                     return View("Credito");
                 }
-                ViewBag.MsgSaldo = "Acreditacion exitosa";
-                return View("Credito");
+                else 
+                {
+                    ViewBag.MsgSaldo = "No existe cuenta Destino, favor verificar.";
+                    return View("Debito");
+                }
             }
             catch (Exception)
             {
@@ -76,25 +83,32 @@ namespace Practica2.Controllers
         {
             try
             {
-                CreditoDebitoModels debito = new CreditoDebitoModels()
+                TransferenciaService service = new TransferenciaService();
+                CuentaModels cuentaDestino = service.getCuenta(cuenta.Trim(),0);
+                if (cuentaDestino != null)
                 {
-                    cuenta = new CuentaModels()
+                    CreditoDebitoModels debito = new CreditoDebitoModels()
                     {
-                        id_cuenta = Convert.ToInt32(cuenta)
-                    },
-                    monto = Convert.ToDouble(monto),
-                    descripcion = descripcion,
-                    fecha = DateTime.Now,
-                    tipo = 0
-                };
-                string msgResultado = consultaService.acreditarDebitar(debito);
-                if (msgResultado != "")
-                {
-                    ViewBag.MsgSaldo += "Error: " + msgResultado;
+                        cuenta = cuentaDestino,
+                        monto = Convert.ToDouble(monto),
+                        descripcion = descripcion,
+                        fecha = DateTime.Now,
+                        tipo = 0
+                    };
+                    string msgResultado = consultaService.acreditarDebitar(debito);
+                    if (msgResultado != "")
+                    {
+                        ViewBag.MsgSaldo += "Error: " + msgResultado;
+                        return View("Debito");
+                    }
+                    ViewBag.MsgSaldo = "Debitacion exitosa";
                     return View("Debito");
                 }
-                ViewBag.MsgSaldo = "Debitacion exitosa";
-                return View("Debito");
+                else
+                {
+                    ViewBag.MsgSaldo = "No existe cuenta Destino, favor verificar.";
+                    return View("Debito");
+                }
             }
             catch (Exception)
             {

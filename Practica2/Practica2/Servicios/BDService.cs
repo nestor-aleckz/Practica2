@@ -105,8 +105,8 @@ namespace Practica2.Servicios
                     //Crea Command
                     SqlCommand cmd = new SqlCommand(pQuery, connection);
                     //Execute command
-                    return (Int32)cmd.ExecuteScalar();
-
+                    cmd.ExecuteScalar();
+                    return 1;
                 }
                 catch
                 {
@@ -116,12 +116,13 @@ namespace Practica2.Servicios
                     //Execute command
                     try
                     {
-                        return (Int32)cmd.ExecuteScalar();
+                        cmd.ExecuteScalar();
+                        return 1;
                     }
                     catch (Exception ex)
                     {
                         HttpContext.Current.Session["Error"] = ex.Message;
-                    }
+                                            }
                 }
                 return 0;
             }
@@ -161,8 +162,10 @@ namespace Practica2.Servicios
                     //Crea Command
                     SqlCommand cmd = new SqlCommand(pQuery, connection);
                     //Ejecuta Command y verifica existencia
-                    cmd.ExecuteScalar();
-                    return true;
+                    String valor = "";
+                    valor = cmd.ExecuteScalar().ToString();
+                    return valor != "" ? true : false;
+
                 }
                 catch
                 {
@@ -173,8 +176,10 @@ namespace Practica2.Servicios
                     //Ejecuta Command y verifica existencia
                     try
                     {
-                        cmd.ExecuteScalar();
-                        return true;
+                        String valor = "";
+                        valor = cmd.ExecuteScalar().ToString();
+                        return valor != "" ? true : false;
+
                     }
                     catch
                     {

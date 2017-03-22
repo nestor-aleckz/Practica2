@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BankController.cs" />
     <Compile Include="Controllers\CreditoDebitoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -187,6 +188,8 @@
     <Compile Include="Servicios\BDService.cs" />
     <Compile Include="Servicios\ConsultasService.cs" />
     <Compile Include="Servicios\LogService.cs" />
+    <Compile Include="Servicios\TransferenciaService.cs" />
+    <Compile Include="Servicios\UserService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -248,6 +251,10 @@
     <Content Include="Views\CreditoDebito\Credito.cshtml" />
     <Content Include="Views\CreditoDebito\Debito.cshtml" />
     <Content Include="Views\CreditoDebito\PagoServicios.cshtml" />
+    <Content Include="Views\Bank\Inicio.cshtml" />
+    <Content Include="Views\Bank\Transferencia.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\User.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
