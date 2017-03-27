@@ -17,7 +17,6 @@ namespace Practica2.Controllers
             UserService uSer = new UserService();
 
             UsuarioModels objUser = uSer.getUsuario(usuario);
-            
             return View(objUser);
         }
         public ActionResult Transferencia()

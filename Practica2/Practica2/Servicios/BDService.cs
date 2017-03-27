@@ -121,8 +121,8 @@ namespace Practica2.Servicios
                     }
                     catch (Exception ex)
                     {
-                        HttpContext.Current.Session["Error"] = ex.Message;
-                                            }
+                       
+                    }
                 }
                 return 0;
             }
@@ -163,7 +163,7 @@ namespace Practica2.Servicios
                     SqlCommand cmd = new SqlCommand(pQuery, connection);
                     //Ejecuta Command y verifica existencia
                     String valor = "";
-                    valor = cmd.ExecuteScalar().ToString();
+                    valor = SelectUnValorQry(pQuery);
                     return valor != "" ? true : false;
 
                 }
@@ -177,7 +177,7 @@ namespace Practica2.Servicios
                     try
                     {
                         String valor = "";
-                        valor = cmd.ExecuteScalar().ToString();
+                        valor = SelectUnValorQry(pQuery);
                         return valor != "" ? true : false;
 
                     }

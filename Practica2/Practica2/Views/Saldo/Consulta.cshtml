@@ -1,27 +1,40 @@
 ﻿@model Practica2.Models.CuentaModels
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Menu{
+    <li>@Html.ActionLink("Transferencia", "Transferencia", "Bank")</li>
+    <li>@Html.ActionLink("Credito", "Credito", "CreditoDebito")</li>
+    <li>@Html.ActionLink("Debito", "Debito", "CreditoDebito")</li>
+    <li>@Html.ActionLink("Pago Servicio", "PagoServicios", "CreditoDebito")</li>
+    <li>@Html.ActionLink("Ver Saldo", "Consulta", "Saldo")</li>
 
 }
 
-<!DOCTYPE html>
+@section MenuDer{
+    <li>
+        @Html.ActionLink("Logout", "Index", "Home")
+    </li>
+}
 
-<html>
-<head>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+<h1 class="page-header"> Saldo </h1>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-
-    <meta name="viewport" content="width=device-width" />
-    <title>Consulta</title>
-
-</head>
-<body>
-    <div>
-        <h2>El saldo de tu cuenta es:</h2> 
-        <p>Q @Model.saldo</p>
-        <p>@DateTime.Now.ToString("d/m/yyyy hh:mm:ss")</p>
+<div class="row">
+    <div class="col-lg-6 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-support fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">Q @Model.saldo</div>
+                        <div>Saldo Actual al <p>@DateTime.Now.ToString("d/m/yyyy hh:mm:ss")</p> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</body>
-</html>
+</div>
+

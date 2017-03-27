@@ -67,11 +67,11 @@ namespace Practica2.Tests.Controllers
              //Arrange
              ConsultasService service = new ConsultasService();
              TransferenciaService serv = new TransferenciaService();
-             CuentaModels cuentaDestino = serv.getCuenta("300", 0);
+             CuentaModels cuentaDestino = serv.getCuenta("500", 0);
              CreditoDebitoModels debito = new CreditoDebitoModels()
              {
                  cuenta = cuentaDestino,
-                 monto = 10.00,
+                 monto = 100.00,
                  descripcion = "Nota de Debito",
                  fecha = DateTime.Now,
                  tipo = 0
@@ -93,11 +93,11 @@ namespace Practica2.Tests.Controllers
              //Arrange
              ConsultasService service = new ConsultasService();
              TransferenciaService serv = new TransferenciaService();
-             CuentaModels cuentaDestino = serv.getCuenta("300", 0);
+             CuentaModels cuentaDestino = serv.getCuenta("100", 0);
              CreditoDebitoModels debito = new CreditoDebitoModels()
              {
                  cuenta = cuentaDestino,
-                 monto = 10.00,
+                 monto = 200.00,
                  descripcion = "Nota de Credito",
                  fecha = DateTime.Now,
                  tipo = 1
@@ -123,10 +123,10 @@ namespace Practica2.Tests.Controllers
              {
                  cuenta_servicio = new CuentaModels()
                  {
-                     id_cuenta = 300
+                     id_cuenta = 100
                  },
-                 nombre = "Claro",
-                 monto = 20.00,
+                 nombre = "Tigo",
+                 monto = 100.00,
                  descripcion = "Pago de Servicio",
                  fecha = DateTime.Now,
                  cuenta_origen = service.getCuenta(usuarioLogged)

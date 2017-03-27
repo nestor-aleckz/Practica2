@@ -60,14 +60,22 @@ namespace Practica2.Servicios
             {
                 CuentaModels origen = transferencia.cuenta_origen;
                 CuentaModels destino = transferencia.cuenta_destino;
-                origen.saldo = origen.saldo - transferencia.monto;
-                destino.saldo = destino.saldo + transferencia.monto;
-                String queryDebito = string.Format("UPDATE dbo.CUENTA SET  saldo = {0} where id_cuenta = {1} ", origen.saldo, origen.id_cuenta);
-                serviceBD.Upd_New_DelUnValorQry(queryDebito);
-                String queryCredito = string.Format("UPDATE dbo.CUENTA SET  saldo = {0} where id_cuenta = {1} ", destino.saldo, destino.id_cuenta);
-                serviceBD.Upd_New_DelUnValorQry(queryCredito);
-                guardarTransferencia(transferencia);
-                return true;
+                //Comprueba montos
+                if(transferencia.monto > origen.saldo)
+                {
+                    return false;
+                }
+                else 
+                { 
+                    origen.saldo = origen.saldo - transferencia.monto;
+                    destino.saldo = destino.saldo + transferencia.monto;
+                    String queryDebito = string.Format("UPDATE dbo.CUENTA SET  saldo = {0} where id_cuenta = {1} ", origen.saldo, origen.id_cuenta);
+                    serviceBD.Upd_New_DelUnValorQry(queryDebito);
+                    String queryCredito = string.Format("UPDATE dbo.CUENTA SET  saldo = {0} where id_cuenta = {1} ", destino.saldo, destino.id_cuenta);
+                    serviceBD.Upd_New_DelUnValorQry(queryCredito);
+                    guardarTransferencia(transferencia);
+                    return true;
+                }
             }
             catch 
             {

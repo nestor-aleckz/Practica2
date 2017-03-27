@@ -10,4 +10,12 @@
     <li>@Html.ActionLink("Ver Saldo", "Consulta", "Saldo")</li>
 
 }
+
+@section MenuDer{
+    <li>
+        @Html.ActionLink("Logout", "Index", "Home")
+    </li>
+}
+
+
 <h3> Bienvenido a Banca en Linea  @Model.nombre  @Model.apellido</h3>

@@ -10,40 +10,47 @@
     <li>@Html.ActionLink("Ver Saldo", "Consulta", "Saldo")</li>
 
 }
-<h2>Transferencia</h2>
 
-<div class="row">
-    <div class="col-sm-6 col-md-6">
-        <table style="width:100%">
-            <tr>
-                <td><label class="col-md-2 control-label"> Cuenta </label></td>
-                <td><input type="text" id="txtCuenta" class="form-control"></td>
-            </tr>
-            <tr>
-                <td><label class="col-md-2 control-label"> Monto </label> </td>
-                <td><input type="text" id="txtMonto" class="form-control"></td>
-            </tr>
-        </table>
+@section MenuDer{
+    <li>
+        @Html.ActionLink("Logout", "Index", "Home")
+    </li>
+}
+
+<h1 class="page-header"> Transferencia </h1>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        Realiza tu Transferencia
     </div>
-
-</div>
-
-<div class="row">
-    <div class="col-sm-3 col-md-3">
-        <center>
-            <input type="button" id="btnAceptar" class="btn btn-default" value="Realizar Transferencia">
-        </center>
+    <div class="panel-body">
+        <form role="form">
+            <fieldset>
+                <div class="form-group">
+                    <input type="text" id="txtCuenta" class="form-control" placeholder="Cuenta">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="txtMonto" class="form-control" placeholder="Monto">
+                </div>
+                <input type="button" id="btnAceptar" class="btn btn-primary btn-lg" value="Realizar Transferencia">
+            </fieldset>
+        </form>
+    
     </div>
-</div>
-
-<div class="row">
-    <div id="correcto" class="col-sm-6 col-md-6" style="background-color:aliceblue">
-    </div>
-</div>
-<div class="row">
-    <div id="error" style="background-color: darkorange" class="col-sm-6 col-md-6">
+    <div class="panel-footer">
+       @DateTime.Now.ToString("d/m/yyyy hh:mm:ss")
     </div>
 </div>
+
+<div class="row">
+    <div id="correcto" class="alert alert-success">
+    </div>
+</div>
+<div class="row">
+    <div id="error" class="alert alert-warning">
+    </div>
+</div>
+
 
 
 <script type="text/javascript" src="../Scripts/jquery-1.10.2.min.js"></script>

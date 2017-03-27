@@ -26,7 +26,7 @@ namespace Practica2.Controllers
         // GET: Credito
         public ActionResult Credito()
         {
-
+            
             return View();
         }
 

@@ -62,11 +62,11 @@ namespace Practica2.Tests.Controllers
         {
             //Arrange
             TransferenciaModels transferencia = new TransferenciaModels();
-            transferencia.monto = 10.00;
+            transferencia.monto = 100.00;
             TransferenciaService serT = new TransferenciaService();
             DateTime hoy = DateTime.Today;
             transferencia.fecha = hoy;
-            transferencia.cuenta_destino = serT.getCuenta("100", 0);
+            transferencia.cuenta_destino = serT.getCuenta("500", 0);
             transferencia.cuenta_origen = serT.getCuenta("2", 1);
             bool esperado = true;
 

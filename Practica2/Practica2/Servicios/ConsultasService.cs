@@ -52,10 +52,13 @@ namespace Practica2.Servicios
 
         public string acreditarDebitar(CreditoDebitoModels creditoDebito)
         {
+
+            String format = "MM/dd/yyyy";
+            String fecha = creditoDebito.fecha.ToString(format);
             
-            int error = bDservice.Upd_New_DelUnValorQry_SLID("insert into dbo.CREDITODEBITO (id_cuenta,descripcion,fecha,monto,tipo) values (" + creditoDebito.cuenta.id_cuenta + 
-                ",'"+ creditoDebito.descripcion+"','" + creditoDebito.fecha + "'," + creditoDebito.monto + ","+ creditoDebito.tipo+")");
-            if (error== 0)
+            int error =  bDservice.Upd_New_DelUnValorQry_SLID("insert into dbo.CREDITODEBITO (id_cuenta,descripcion,fecha,monto,tipo) values (" + creditoDebito.cuenta.id_cuenta + 
+                ",'"+ creditoDebito.descripcion+"','" + fecha + "'," + creditoDebito.monto + ","+ creditoDebito.tipo+")");
+            if (error == 0)
                 return "No existe cuenta";
 
             double saldo = getSaldoCuenta(creditoDebito.cuenta.id_cuenta);

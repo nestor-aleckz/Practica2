@@ -2,55 +2,51 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section MenuIzq{
+@section MenuDer{
     <li>@Html.ActionLink("Registro", "User", "Home")</li>
     <li>@Html.ActionLink("Login", "Login", "Home")</li>
 }
 
-<h2> Registro de Usuario</h2>
 <div class="row">
-    <div class="col-sm-6 col-md-6">
-        <table style="width:100%">
-            <tr>
-                <td><label class="col-md-2 control-label">Nombre</label></td>
-                <td><input type="text" id="txtNombre" class="form-control"></td>
-            </tr>
-            <tr>
-                <td><label class="col-md-2 control-label">Apellido</label> </td>
-                <td><input type="text" id="txtApellido" class="form-control"></td>
-            </tr>
-            <tr>
-                <td><label class="col-md-2 control-label">Correo</label> </td>
-                <td><input type="text" id="txtCorreo" class="form-control"></td>
-            </tr>
-            <tr>
-                <td><label class="col-md-2 control-label">Usuario</label> </td>
-                <td><input type="text" id="txtUser" class="form-control"></td>
-            </tr>
-            <tr>
-                <td><label class="col-md-2 control-label" >Password</label> </td>
-                <td><input type="password" id="txtPass" class="form-control"></td>
-            </tr>
-
-        </table>
-    </div>
-
-</div>
-
-<div class="row">
-    <div class="col-sm-3 col-md-3">
-        <center>
-            <input type="button" id="btnAceptar" class="btn btn-default" value="Registrar">
-        </center>
+    <div class="col-md-4 col-md-offset-4">
+        <div class="login-panel panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"> Registro de Usuario </h3>
+            </div>
+            <div class="panel-body">
+                <form role="form">
+                    <fieldset>
+                        <div class="form-group">
+                            <input class="form-control" id="txtNombre" placeholder="Nombre" name="nombre" type="text" value="">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" id="txtApellido" placeholder="Apellido" name="apellido" type="text" value="">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" id="txtCorreo" placeholder="Correo" name="correo" type="email" value="">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" id="txtUser" placeholder="User" name="user" type="text" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" id="txtPass" placeholder="Password" name="password" type="password" value="">
+                        </div>
+                        <input type="button" id="btnAceptar" class="btn btn-lg btn-success btn-block" value="Registrar">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
+
+
 
 <div  class="row"  >
-    <div id="correcto" class="col-sm-3 col-md-3" style="background-color:aliceblue">
+    <div id="correcto" class="alert alert-success">
     </div>
 </div>
 <div  class="row"  >
-    <div id="error" style="background-color: darkorange"  class="col-sm-3 col-md-3">
+    <div id="error" class="alert alert-warning">
     </div>
 </div>
 

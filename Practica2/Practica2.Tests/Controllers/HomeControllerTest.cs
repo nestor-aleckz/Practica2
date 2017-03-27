@@ -70,8 +70,8 @@ namespace Practica2.Tests.Controllers
         { 
             //Arrange
             UserService serv = new UserService();
-            String usuario = "admin";
-            bool esperado = false;
+            String usuario = "pao";
+            bool esperado = true;
             //Acts
             bool resultado = serv.existeUsuario(usuario);
             
@@ -86,6 +86,7 @@ namespace Practica2.Tests.Controllers
             String codigo = "2";
             String user = "pao";
             String pass = "1234";
+            bool esperado = true;
             UserService serv = new UserService();
             UsuarioModels usuarioEsperado = new UsuarioModels()
             {
@@ -98,10 +99,18 @@ namespace Practica2.Tests.Controllers
             };
             //Acts
             UsuarioModels resultado = serv.getUsuario(codigo,user,pass) as UsuarioModels;
-            //Asert
+            bool respuesta = false;
+            
             if(resultado != null){
-            Assert.AreEqual(usuarioEsperado.id_usuario,resultado.id_usuario);
+                if(usuarioEsperado.nombre == resultado.nombre)
+                {
+                    respuesta = true;
+                }
             }
+
+            //Asert
+            Assert.AreEqual(esperado, respuesta);
+            
         }
 
         [TestMethod]
@@ -111,7 +120,7 @@ namespace Practica2.Tests.Controllers
             UserService serv = new UserService();
             UsuarioModels usuario = new UsuarioModels()
             {
-                id_usuario = 6,
+                id_usuario = 13,
                 usuario = "nuevo",
                 correo = "nuevo@gmail.com",
                 contrasenia = "1234",
@@ -131,7 +140,7 @@ namespace Practica2.Tests.Controllers
         { 
             //Arrange
             UserService serv = new UserService();
-            int esperado = 6;
+            int esperado = 13;
             //Acts
             int resultado = serv.getCodigoUsuario();
             //Asert

@@ -1,52 +1,66 @@
 ﻿@model Practica2.Models.CreditoDebitoModels
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Menu{
+    <li>@Html.ActionLink("Transferencia", "Transferencia", "Bank")</li>
+    <li>@Html.ActionLink("Credito", "Credito", "CreditoDebito")</li>
+    <li>@Html.ActionLink("Debito", "Debito", "CreditoDebito")</li>
+    <li>@Html.ActionLink("Pago Servicio", "PagoServicios", "CreditoDebito")</li>
+    <li>@Html.ActionLink("Ver Saldo", "Consulta", "Saldo")</li>
 
 }
 
-<!DOCTYPE html>
+@section MenuDer{
+    <li>
+        @Html.ActionLink("Logout", "Index", "Home")
+    </li>
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Debito</title>
-</head>
-<body>
+<h1 class="page-header"> Debito </h1>
     <div class="row">
         <div class="col-md-8">
-            <section id="loginForm">
-                @using (Html.BeginForm("Debitar", "CreditoDebito", FormMethod.Post, new { id = "Form Name" }))
-            {
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.cuenta, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.cuenta, new { @class = "form-control" })
-                        </div>
-                        @Html.LabelFor(m => m.monto, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.monto, new { @class = "form-control" })
-                        </div>
-                        @Html.LabelFor(m => m.descripcion, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.descripcion, new { @class = "form-control" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Debitar" class="btn btn-default" />
-                        </div>
-                    </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Realizar Debito
+                </div>
+                <div class="panel-body">
+                    <section id="loginForm">
+                        @using (Html.BeginForm("Debitar", "CreditoDebito", FormMethod.Post, new { id = "Form Name" }))
+                        {
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.cuenta, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.cuenta, new { @class = "form-control" })
+                                </div>
+                                @Html.LabelFor(m => m.monto, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.monto, new { @class = "form-control" })
+                                </div>
+                                @Html.LabelFor(m => m.descripcion, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.descripcion, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Debitar" class="btn btn-default" />
+                                </div>
+                            </div>
 
-                }
-            </section>
+                        }
+                    </section>
+                </div>
+                <div class="panel-footer">
+                    @DateTime.Now.ToString("d/m/yyyy hh:mm:ss")
+                </div>
+            </div>
         </div>
         <div class="col-md-8">
             @ViewBag.MsgSaldo
         </div>
     </div>
 
-
-</body>
-</html>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

@@ -17,7 +17,7 @@ namespace Practica2.Servicios
 
         public UsuarioModels getLoggedUser()
         {
-            int id_Usuario = 2;
+            int id_Usuario = int.Parse(HttpContext.Current.Session["usuario"].ToString());
             var usuario = consultaService.getUser(id_Usuario);
 
             return usuario;

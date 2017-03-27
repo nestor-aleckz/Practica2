@@ -3,45 +3,44 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section MenuIzq{
+@section MenuDer{
     <li>@Html.ActionLink("Registro", "User", "Home")</li>
     <li>@Html.ActionLink("Login", "Login", "Home")</li>    
 }
-<h2> Iniciar Sesion </h2>
-<div class="row">
-    <div class="col-sm-6 col-md-6">
-        <table style="width:100%">
-            <tr>
-                <td><label class="col-md-2 control-label"> Codigo </label></td>
-                <td><input type="text" id="txtCodigo" class="form-control"></td>
-            </tr>
-            <tr>
-                <td><label class="col-md-2 control-label"> Usuario </label></td>
-                <td><input type="text" id="txtUser" class="form-control"></td>
-            </tr>
-            <tr>
-                <td><label class="col-md-2 control-label"> Contraseña </label> </td>
-                <td><input type="password" id="txtPass" class="form-control"></td>
-            </tr>
-        </table>
+
+
+  <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Iniciar Sesion </h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" id="txtCodigo" placeholder="Codigo" name="codigo" type="text" value="">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="txtUser" placeholder="User" name="user" type="text" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="txtPass"  placeholder="Password" name="password" type="password" value="">
+                            </div>
+                            <input id="btnIngresar" type="button" class="btn btn-lg btn-success btn-block" value="Ingresar">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
-</div>
-
 <div class="row">
-    <div class="col-sm-3 col-md-3">
-        <center>
-            <input type="button" id="btnIngresar" class="btn btn-default" value="Ingresar">
-        </center>
-    </div>
-</div>
-
-<div class="row">
-    <div id="correcto" class="col-sm-6 col-md-6" style="background-color:aliceblue">
+    <div id="correcto" class="alert alert-success">
     </div>
 </div>
 <div class="row">
-    <div id="error" style="background-color: darkorange" class="col-sm-6 col-md-6">
+    <div id="error" class="alert alert-warning">
     </div>
 </div>
 
