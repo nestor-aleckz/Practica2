@@ -15,7 +15,7 @@ namespace Practica2.Tests.Controllers
             //Arrange
             ConsultasService service = new ConsultasService();
             int id_usuarioLogged =11;
-            double esperado = 6300.00;
+            double esperado = 2210.00;
             //Acts
             CuentaModels cuenta = service.getCuenta(id_usuarioLogged);
             double resultado = cuenta.saldo;

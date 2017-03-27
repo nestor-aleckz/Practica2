@@ -140,7 +140,7 @@ namespace Practica2.Tests.Controllers
         { 
             //Arrange
             UserService serv = new UserService();
-            int esperado = 13;
+            int esperado = 17;
             //Acts
             int resultado = serv.getCodigoUsuario();
             //Asert
