@@ -83,8 +83,8 @@ namespace Practica2.Tests.Controllers
         public void Ingresar() 
         {
             //Arrange 
-            String codigo = "2";
-            String user = "pao";
+            String codigo = "5";
+            String user = "jose";
             String pass = "1234";
             bool esperado = true;
             UserService serv = new UserService();
@@ -120,7 +120,7 @@ namespace Practica2.Tests.Controllers
             UserService serv = new UserService();
             UsuarioModels usuario = new UsuarioModels()
             {
-                id_usuario = 13,
+                id_usuario = 14,
                 usuario = "nuevo",
                 correo = "nuevo@gmail.com",
                 contrasenia = "1234",

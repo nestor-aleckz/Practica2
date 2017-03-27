@@ -93,7 +93,7 @@ namespace Practica2.Tests.Controllers
              //Arrange
              ConsultasService service = new ConsultasService();
              TransferenciaService serv = new TransferenciaService();
-             CuentaModels cuentaDestino = serv.getCuenta("100", 0);
+             CuentaModels cuentaDestino = serv.getCuenta("900", 0);
              CreditoDebitoModels debito = new CreditoDebitoModels()
              {
                  cuenta = cuentaDestino,

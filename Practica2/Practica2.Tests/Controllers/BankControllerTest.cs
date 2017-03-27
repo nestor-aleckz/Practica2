@@ -66,7 +66,7 @@ namespace Practica2.Tests.Controllers
             TransferenciaService serT = new TransferenciaService();
             DateTime hoy = DateTime.Today;
             transferencia.fecha = hoy;
-            transferencia.cuenta_destino = serT.getCuenta("500", 0);
+            transferencia.cuenta_destino = serT.getCuenta("900", 0);
             transferencia.cuenta_origen = serT.getCuenta("2", 1);
             bool esperado = true;
 
