@@ -23,6 +23,12 @@ namespace Practica2.Controllers
             return View();
         }
 
+        public ActionResult VistaPrueba()
+        {
+            ViewBag.Message = "Pagina de Descricpcion de tu aplicacion";
+
+            return View();
+        }
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

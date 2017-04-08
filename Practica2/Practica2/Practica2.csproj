@@ -322,7 +322,9 @@
     <Content Include="Style\vendor\morrisjs\morris.min.js" />
     <Content Include="Style\vendor\raphael\raphael.js" />
     <Content Include="Style\vendor\raphael\raphael.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -413,6 +415,7 @@
     <Content Include="Style\vendor\font-awesome\scss\_spinning.scss" />
     <Content Include="Style\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="Style\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="Views\Home\VistaPrueba.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
